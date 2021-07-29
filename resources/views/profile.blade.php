@@ -6,15 +6,17 @@
 <div class="container text-light">
 
   <div class="page-header">
-    <h1>Welcome {{ $user['name'] }}!!!</h1>      
+    <h1>Welcome {{ $user['name'] }}!!!</h1>
   </div>
-  
-    <p>This is some text.</p>      
-    <p>This is another text.</p> 
 
-    <form action="{{ route('user.logout') }}" method="POST">
-	    <input type="submit" value="Logout" class="btn">
-    </form>     
+    <p>This is some text.</p>
+    <p>This is another text.</p>
+
+    @if(isset($_COOKIE['token']))
+        <form action="{{ route('user.logout') }}" method="POST">
+	        <input type="submit" value="Logout" class="btn">
+        </form>
+    @endif
 
 </div>
 @endsection

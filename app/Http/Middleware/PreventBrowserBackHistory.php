@@ -18,6 +18,11 @@ class PreventBrowserBackHistory
     {
         // return $next($request);
 
+        // if(isset($_COOKIE['token'])) {
+        //     //dd($_COOKIE['token']);
+        //     return redirect()->to('/');
+        // }
+
         $response = $next($request);
         return $response->header('Cache-Control','no-cache,no-store, max-age=0, must-revalidate')
                     ->header('Pragma','no-cache')

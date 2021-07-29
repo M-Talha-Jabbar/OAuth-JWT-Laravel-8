@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\LoginWithGoogleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +27,6 @@ Route::get('/', function(Request $request){
 Route::get('/register',function(){
     return view('register');
 });
+
+Route::get('/redirect', [LoginWithGoogleController::class, 'redirectToProvider']);
+Route::get('/callback', [LoginWithGoogleController::class, 'handleProviderCallback']);
